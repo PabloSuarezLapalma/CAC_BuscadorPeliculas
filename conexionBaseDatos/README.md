@@ -29,7 +29,8 @@ Existen dos formas de ejecutar este proyecto.
   
 2. Ejecutar el proyecto en un contenedor Docker
    - Deberá tener instalado [Docker](https://docs.docker.com/get-docker/) en su equipo 
-   - Clone el repositorio del proyecto utilizando el comando `git clone https://github.com/PabloSuarezLapalma/maven-tomcat-movies.git`
+   - Clone el repositorio del proyecto utilizando el comando `git clone https://github.com/LorenaSuarez0609/CAC_BuscadorPeliculas.git`
+   - Acceder a la carpeta `conexionBaseDatos`
    - Cree la imagen de Docker del proyecto con el comando `docker build -t maven-tomcat-movies .`
    - Descargue la imagen de MySQL de Docker con el comando `docker pull mysql`
    - Cree una red para los contenedores con el comando `docker network create internalnet`
@@ -41,12 +42,14 @@ Una vez que se esté ejecutando el proyecto, podrá utilizar los siguientes endp
 
 ### Películas
 - GET /movies: Obtiene todas las películas
+  - Utilizando el parámetro `nombre` puede filtrar las películas por título
 - POST /movie: Permite agregar una película 
 - PUT /movie/{id}: Permite modificar una película pasando el `id` como parámetro
 - DELETE /movie/{id}: Permite eliminar una película pasando el `id` como parámetro
 
 ### Users
 - GET /users: Obtiene todos los usuarios
+  - Utilizando el parámetro `titulo` puede filtrar los usuarios por nombre
 - POST /user: Permite agregar una película
 - PUT /user/{id}: Permite modificar una usuario pasando el `id` como parámetro
 - DELETE /user/{id}: Permite eliminar una usuario pasando el `id` como parámetro
