@@ -21,9 +21,10 @@ Existen dos formas de ejecutar este proyecto.
    - Requisitos:
       - [Java JDK 17](https://www.oracle.com/ar/java/technologies/downloads/)
       - [Apache Tomcat](https://tomcat.apache.org/download-90.cgi).
-   - Clone el repositorio del proyecto utilizando el comando `git clone https://github.com/PabloSuarezLapalma/maven-tomcat-movies.git`
+   - Clone el repositorio del proyecto utilizando el comando  `git clone https://github.com/LorenaSuarez0609/CAC_BuscadorPeliculas.git`
    - Abra el proyecto en su IDE/Editor de Código de preferencia
    - Configure JDK 17 y Tomcat 9.0.90 para ser utilzado en el proyecto
+   - Acceda a la carpeta `conexionBaseDatos`
    - Ejecute el proyecto como una aplicación Maven
 
   
