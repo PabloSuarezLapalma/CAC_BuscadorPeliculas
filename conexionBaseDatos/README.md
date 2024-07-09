@@ -43,14 +43,14 @@ Una vez que se esté ejecutando el proyecto, podrá utilizar los siguientes endp
 
 ### Películas
 - GET /movies: Obtiene todas las películas
-  - Utilizando el parámetro `nombre` puede filtrar las películas por título
+  - Utilizando el parámetro `titulo` puede filtrar las películas por título
 - POST /movie: Permite agregar una película 
 - PUT /movie/{id}: Permite modificar una película pasando el `id` como parámetro
 - DELETE /movie/{id}: Permite eliminar una película pasando el `id` como parámetro
 
 ### Users
 - GET /users: Obtiene todos los usuarios
-  - Utilizando el parámetro `titulo` puede filtrar los usuarios por nombre
+  - Utilizando el parámetro `nombre` puede filtrar los usuarios por nombre
 - POST /user: Permite agregar una película
 - PUT /user/{id}: Permite modificar una usuario pasando el `id` como parámetro
 - DELETE /user/{id}: Permite eliminar una usuario pasando el `id` como parámetro
