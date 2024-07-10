@@ -18,3 +18,5 @@ Integrantes:
 4. API OMBMOVIES
 
 
+### Enlace al deployment en Vercel del Frontend: https://cac-buscador-peliculas.vercel.app/
+### Enlace del vídeo de demostración de YouTube: 
