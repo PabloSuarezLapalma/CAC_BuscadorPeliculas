@@ -19,4 +19,4 @@ Integrantes:
 
 
 ### Enlace al deployment en Vercel del Frontend: https://cac-buscador-peliculas.vercel.app/
-### Enlace del vídeo de demostración de YouTube: 
+### Enlace del vídeo de demostración de YouTube: https://www.youtube.com/watch?v=IICL84Ysk-U

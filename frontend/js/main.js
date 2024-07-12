@@ -1,3 +1,6 @@
+//Se utiliza una constante global par almacenar la URL base de la API, que se utilizará para realizar las solicitudes HTTP.
+const localhost = 'http://localhost:8080/api_movie_maven_war';
+
 document.getElementById('myForm').addEventListener('submit', function(event) {
     event.preventDefault();
     console.log(this);
@@ -15,7 +18,8 @@ function limpiarError() {
 }
 
 
-function validar(formulario) {
+async function validar(formulario) {
+async function validar(formulario) {
     //variable para el campo email
     var expReg =  /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
     //valido el nombre
@@ -82,9 +86,60 @@ function validar(formulario) {
         formulario.terminos.focus();
         return false;
     }
-    Swal.fire("Gracias, Se ha registrado Correctamente!")
+    const nombre = formulario.name.value;
+    const apellido = formulario.lastName.value;
+    const email = formulario.email.value;
+    const password = formulario.password.value;
+    const pais = formulario.pais.value;
+    const fechaNacimiento = formulario.fecha.value;
+    //Parsea la fecha al formato aceptado por el Backend
+    let date = new Date(fechaNacimiento);
+    let formattedDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
+    
+    //Se crea una nueva instancia de XMLHttpRequest y se abre una conexión POST a la URL de la API de usuarios.
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', `${localhost}/users`, true);
+    //Se especifica que el tipo de contenido será pasado en formato JSON
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    try{
+        //Se envía la solicitud con los datos del nuevo usuario
+        xhr.send(JSON.stringify({
+            nombre: nombre,
+            apellido: apellido,
+            email: email,
+            password: password,
+            pais: pais,
+            fechaNacimiento: formattedDate
+        }));
+    }
+    catch (e){
+        console.error('Error al agregar usuario:', e);
+    }
+    //Si la solicitud se ha completado y la respuesta está lista, se verifica si el estado de la respuesta es 200 (OK) y se muestra un mensaje en la consola.
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4){
+            if(xhr.status === 200) {
+                //Se muestra un mensaje de éxito si el usuario se ha registrado correctamente
+                Swal.fire("Gracias, Se ha registrado Correctamente!")
+                console.log('Usuario agregado correctamente:', xhr.responseText);
+            }
+            else {
+                //Si la respuesta no es 200, es decir hubo un error, se muestra un mensaje de error en la consola.
+                Swal.fire("Hubo un error al registrar el usuario, intente nuevamente")
+                console.error(`Error al agregar el usuario: ${xhr.status} ${xhr.statusText}`);
+            }
+        }
+        
     return true;
+    
 }
+    
+}
+}
+
+
+
+
 
 function mostrarAlerta(mensaje) {
     Swal.fire(mensaje);
