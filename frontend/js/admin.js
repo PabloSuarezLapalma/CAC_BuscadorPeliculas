@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const imagen = document.getElementById('imagen').value;
         
         if (!titulo || !duracion || !genero || !imagen) {
-            console.error('Faltan datos');
+            alert('Todos los campos son obligatorios');
             return;
         }
 
@@ -82,6 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Pelicula agregada:', response);
                 // Se llama a la función fetchMovies para actualizar la tabla con la nueva película.
                 fetchMovies();
+                document.getElementById('titulo').value = '';
+                document.getElementById('duracion').value = '';
+                document.getElementById('genero').value = '';
+                document.getElementById('imagen').value = '';
             } else {
                 throw new Error(`Error al agregar pelicula: ${response.status} ${response.statusText}`);
             }
